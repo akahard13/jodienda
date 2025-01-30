@@ -11,45 +11,27 @@ body {
 }
 
 .container {
-    text-align: center;
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.message {
+/* Fondo blanco */
+.white-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Ajusta el ancho según necesites */
+    max-width: 600px; /* Para que no sea demasiado ancho */
+    height: auto;
     background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 2s ease-in-out;
+    z-index: 1; /* Detrás del texto pero encima del fondo */
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #ff6f61;
-    margin-bottom: 1rem;
-}
-
-p {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 1.5rem;
-}
-
-button {
-    background: #ff6f61;
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #ff4a3d;
-}
-
+/* Corazones */
 .hearts {
     position: absolute;
     top: 0;
@@ -57,6 +39,7 @@ button:hover {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 2; /* Encima del fondo blanco pero detrás del texto */
 }
 
 .heart {
@@ -96,6 +79,43 @@ button:hover {
     top: 70%;
     left: 70%;
     animation-duration: 7.5s;
+}
+
+/* Mensaje */
+.message {
+    position: relative; /* Importante para el z-index */
+    background: transparent; /* Sin fondo */
+    padding: 2rem;
+    border-radius: 15px;
+    z-index: 3; /* Encima de los corazones y el fondo blanco */
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ff6f61;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff4a3d;
 }
 
 @keyframes fadeIn {
